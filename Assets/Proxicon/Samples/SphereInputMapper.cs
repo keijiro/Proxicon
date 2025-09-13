@@ -97,7 +97,8 @@ public class SphereInputMapper : MonoBehaviour
 
     void UpdateContactInputs()
     {
-        ProxiconAPI.SetToggle(_inputIndex, _isInContact);
+        bool isFalling = _rigidbody.linearVelocity.y < 0;
+        ProxiconAPI.SetToggle(_inputIndex, isFalling);
 
         if (!_wasInContact && _isInContact)
         {
@@ -109,35 +110,4 @@ public class SphereInputMapper : MonoBehaviour
         }
     }
 
-    void OnDrawGizmos()
-    {
-        Gizmos.color = _isInContact ? Color.red : Color.green;
-        Gizmos.DrawWireSphere(transform.position, 0.5f);
-
-        float height = transform.position.y;
-        float normalizedHeight = Mathf.InverseLerp(_minHeight, _maxHeight, height);
-
-        Gizmos.color = Color.blue;
-        Vector3 barStart = transform.position + Vector3.right * 1f;
-        Vector3 barEnd = barStart + Vector3.up * normalizedHeight * 2f;
-        Gizmos.DrawLine(barStart, barEnd);
-
-        Gizmos.DrawWireCube(barEnd + Vector3.up * 0.1f, Vector3.one * 0.1f);
-    }
-
-    void OnGUI()
-    {
-        if (!Application.isPlaying) return;
-
-        Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position + Vector3.up * 1f);
-        if (screenPos.z > 0)
-        {
-            float height = transform.position.y;
-            float normalizedHeight = Mathf.InverseLerp(_minHeight, _maxHeight, height);
-
-            GUI.color = _isInContact ? Color.red : Color.white;
-            GUI.Label(new Rect(screenPos.x - 50, Screen.height - screenPos.y - 40, 100, 40),
-                $"Sphere {_inputIndex}\nH: {normalizedHeight:F2}\nContact: {_isInContact}");
-        }
-    }
 }

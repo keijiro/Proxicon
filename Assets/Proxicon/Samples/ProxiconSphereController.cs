@@ -7,6 +7,7 @@ public class ProxiconSphereController : MonoBehaviour
     [SerializeField] float _spawnRadius = 5f;
     [SerializeField] float _minHeight = 0f;
     [SerializeField] float _maxHeight = 10f;
+    [SerializeField] float _spawnHeightVariation = 2f;
 
     SphereInputMapper[] _spheres;
 
@@ -22,9 +23,10 @@ public class ProxiconSphereController : MonoBehaviour
         for (int i = 0; i < 16; i++)
         {
             float angle = (i / 16f) * 2 * Mathf.PI;
+            float randomHeight = _maxHeight + Random.Range(-_spawnHeightVariation, _spawnHeightVariation);
             Vector3 position = new Vector3(
                 Mathf.Cos(angle) * _spawnRadius,
-                _maxHeight,
+                randomHeight,
                 Mathf.Sin(angle) * _spawnRadius
             );
 
@@ -51,23 +53,4 @@ public class ProxiconSphereController : MonoBehaviour
         }
     }
 
-    void OnDrawGizmos()
-    {
-        if (_spawnParent == null) return;
-
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(_spawnParent.position, _spawnRadius);
-
-        Gizmos.color = Color.green;
-        for (int i = 0; i < 16; i++)
-        {
-            float angle = (i / 16f) * 2 * Mathf.PI;
-            Vector3 position = _spawnParent.position + new Vector3(
-                Mathf.Cos(angle) * _spawnRadius,
-                0,
-                Mathf.Sin(angle) * _spawnRadius
-            );
-            Gizmos.DrawWireSphere(position, 0.2f);
-        }
-    }
 }
