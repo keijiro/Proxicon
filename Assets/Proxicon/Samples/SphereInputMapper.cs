@@ -92,21 +92,21 @@ public class SphereInputMapper : MonoBehaviour
         float normalizedHeight = Mathf.InverseLerp(_minHeight, _maxHeight, height);
         normalizedHeight = Mathf.Clamp01(normalizedHeight);
 
-        ProxiconAPI.SetKnob(_inputIndex, normalizedHeight);
+        Proxicon.SetKnob(_inputIndex, normalizedHeight);
     }
 
     void UpdateContactInputs()
     {
         bool isFalling = _rigidbody.linearVelocity.y < 0;
-        ProxiconAPI.SetToggle(_inputIndex, isFalling);
+        Proxicon.SetToggle(_inputIndex, isFalling);
 
         if (!_wasInContact && _isInContact)
         {
-            ProxiconAPI.PressButton(_inputIndex);
+            Proxicon.PressButton(_inputIndex);
         }
         else if (_wasInContact && !_isInContact)
         {
-            ProxiconAPI.ReleaseButton(_inputIndex);
+            Proxicon.ReleaseButton(_inputIndex);
         }
     }
 
