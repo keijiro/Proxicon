@@ -1,0 +1,11 @@
+{
+  "author": "Keijiro Takahashi",
+  "dependencies": { "com.unity.inputsystem": "1.14.2" },
+  "description": "Virtual input device.",
+  "displayName": "Proxicon",
+  "keywords": [ "unity" ],
+  "name": "jp.keijiro.proxicon",
+  "unity": "6000.0",
+  "unityRelease": "0f1",
+  "version": "1.0.0"
+}

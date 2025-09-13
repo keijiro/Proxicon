@@ -1,0 +1,18 @@
+{
+    "name": "Proxicon.Tests",
+    "rootNamespace": "",
+    "references": [
+        "GUID:f20f5e3e163a747fc803876527cafdbb",
+        "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:27619889b8ba8c24980f49ee34dbb44a"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
