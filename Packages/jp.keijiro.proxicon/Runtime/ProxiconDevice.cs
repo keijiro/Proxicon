@@ -138,7 +138,10 @@ public class ProxiconDevice : InputDevice
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     static void Initialize()
     {
-        InputSystem.AddDevice<ProxiconDevice>();
+        if (current == null)
+        {
+            InputSystem.AddDevice<ProxiconDevice>();
+        }
     }
 }
 
