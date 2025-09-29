@@ -102,11 +102,11 @@ public class SphereInputMapper : MonoBehaviour
 
         if (!_wasInContact && _isInContact)
         {
-            Proxicon.PressButton(_inputIndex);
+            Proxicon.SetButton(_inputIndex, true);
         }
         else if (_wasInContact && !_isInContact)
         {
-            Proxicon.ReleaseButton(_inputIndex);
+            Proxicon.SetButton(_inputIndex, false);
         }
     }
 

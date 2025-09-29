@@ -45,20 +45,21 @@ public struct ProxiconState : IInputStateTypeInfo
     [InputControl(name = "toggle15", layout = "Button", bit = 15)]
     public ushort toggles;
 
-    [InputControl(name = "knob0",  layout = "Axis")] public float knob0;
-    [InputControl(name = "knob1",  layout = "Axis")] public float knob1;
-    [InputControl(name = "knob2",  layout = "Axis")] public float knob2;
-    [InputControl(name = "knob3",  layout = "Axis")] public float knob3;
-    [InputControl(name = "knob4",  layout = "Axis")] public float knob4;
-    [InputControl(name = "knob5",  layout = "Axis")] public float knob5;
-    [InputControl(name = "knob6",  layout = "Axis")] public float knob6;
-    [InputControl(name = "knob7",  layout = "Axis")] public float knob7;
-    [InputControl(name = "knob8",  layout = "Axis")] public float knob8;
-    [InputControl(name = "knob9",  layout = "Axis")] public float knob9;
-    [InputControl(name = "knob10", layout = "Axis")] public float knob10;
-    [InputControl(name = "knob11", layout = "Axis")] public float knob11;
-    [InputControl(name = "knob12", layout = "Axis")] public float knob12;
-    [InputControl(name = "knob13", layout = "Axis")] public float knob13;
-    [InputControl(name = "knob14", layout = "Axis")] public float knob14;
-    [InputControl(name = "knob15", layout = "Axis")] public float knob15;
+    [InputControl(name = "knob0",  layout = "Axis", format = "USHT", sizeInBits = 16, offset = 4)]
+    [InputControl(name = "knob1",  layout = "Axis", format = "USHT", sizeInBits = 16, offset = 6)]
+    [InputControl(name = "knob2",  layout = "Axis", format = "USHT", sizeInBits = 16, offset = 8)]
+    [InputControl(name = "knob3",  layout = "Axis", format = "USHT", sizeInBits = 16, offset = 10)]
+    [InputControl(name = "knob4",  layout = "Axis", format = "USHT", sizeInBits = 16, offset = 12)]
+    [InputControl(name = "knob5",  layout = "Axis", format = "USHT", sizeInBits = 16, offset = 14)]
+    [InputControl(name = "knob6",  layout = "Axis", format = "USHT", sizeInBits = 16, offset = 16)]
+    [InputControl(name = "knob7",  layout = "Axis", format = "USHT", sizeInBits = 16, offset = 18)]
+    [InputControl(name = "knob8",  layout = "Axis", format = "USHT", sizeInBits = 16, offset = 20)]
+    [InputControl(name = "knob9",  layout = "Axis", format = "USHT", sizeInBits = 16, offset = 22)]
+    [InputControl(name = "knob10", layout = "Axis", format = "USHT", sizeInBits = 16, offset = 24)]
+    [InputControl(name = "knob11", layout = "Axis", format = "USHT", sizeInBits = 16, offset = 26)]
+    [InputControl(name = "knob12", layout = "Axis", format = "USHT", sizeInBits = 16, offset = 28)]
+    [InputControl(name = "knob13", layout = "Axis", format = "USHT", sizeInBits = 16, offset = 30)]
+    [InputControl(name = "knob14", layout = "Axis", format = "USHT", sizeInBits = 16, offset = 32)]
+    [InputControl(name = "knob15", layout = "Axis", format = "USHT", sizeInBits = 16, offset = 34)]
+    public unsafe fixed ushort knobs[16];
 }
