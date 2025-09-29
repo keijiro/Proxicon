@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class ProxiconSphereController : MonoBehaviour
 {
-    [SerializeField] GameObject _spherePrefab;
-    [SerializeField] Transform _spawnParent;
+    [SerializeField] GameObject _spherePrefab = null;
+    [SerializeField] Transform _spawnParent = null;
     [SerializeField] float _spawnRadius = 5f;
     [SerializeField] float _minHeight = 0f;
     [SerializeField] float _maxHeight = 10f;

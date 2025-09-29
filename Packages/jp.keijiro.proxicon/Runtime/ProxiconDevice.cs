@@ -5,6 +5,13 @@ using UnityEngine.InputSystem.Layouts;
 using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.InputSystem.Utilities;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
+#if UNITY_EDITOR
+[InitializeOnLoad]
+#endif
 [InputControlLayout(stateType = typeof(ProxiconState))]
 public class ProxiconDevice : InputDevice
 {
@@ -130,19 +137,24 @@ public class ProxiconDevice : InputDevice
             current = null;
     }
 
+#if UNITY_EDITOR
+
     static ProxiconDevice()
     {
         InputSystem.RegisterLayout<ProxiconDevice>();
+        if (current == null) InputSystem.AddDevice<ProxiconDevice>();
     }
 
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+#else
+
+    [RuntimeInitializeOnLoadMethod]
     static void Initialize()
     {
-        if (current == null)
-        {
-            InputSystem.AddDevice<ProxiconDevice>();
-        }
+        InputSystem.RegisterLayout<ProxiconDevice>();
+        if (current == null) InputSystem.AddDevice<ProxiconDevice>();
     }
+
+#endif
 }
 
 [System.Runtime.InteropServices.StructLayout(System.Runtime.InteropServices.LayoutKind.Explicit, Size = 68)]
