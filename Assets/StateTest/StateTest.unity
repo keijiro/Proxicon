@@ -321,7 +321,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: 80900915-0bf8-4e36-99d3-1f5576b7fe0f
-      m_Path: <ProxiconDevice>/button1
+      m_Path: <ProxiconDevice>/button0
       m_Interactions: 
       m_Processors: 
       m_Groups: 

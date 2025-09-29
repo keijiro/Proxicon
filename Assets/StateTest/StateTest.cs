@@ -27,9 +27,7 @@ public sealed class StateTest : MonoBehaviour
     async Awaitable Start()
     {
         await Awaitable.WaitForSecondsAsync(2);
-
-        Proxicon.SetButton(1, true);
-        Proxicon.UpdateDevice();
+        Proxicon.SetButton(0, true);
     }
 
 }

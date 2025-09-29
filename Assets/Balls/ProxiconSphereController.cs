@@ -31,13 +31,13 @@ public class ProxiconSphereController : MonoBehaviour
             );
 
             GameObject sphere = Instantiate(_spherePrefab, position, Quaternion.identity, _spawnParent);
-            sphere.name = $"Sphere_{i + 1:D2}";
+            sphere.name = $"Sphere_{i:D2}";
 
             var mapper = sphere.GetComponent<SphereInputMapper>();
             if (mapper == null)
                 mapper = sphere.AddComponent<SphereInputMapper>();
 
-            mapper.Initialize(i + 1, _minHeight, _maxHeight);
+            mapper.Initialize(i, _minHeight, _maxHeight);
             _spheres[i] = mapper;
         }
     }
