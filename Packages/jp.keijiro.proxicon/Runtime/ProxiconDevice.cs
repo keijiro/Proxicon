@@ -137,6 +137,13 @@ public class ProxiconDevice : InputDevice
             current = null;
     }
 
+    protected override unsafe long ExecuteCommand(InputDeviceCommand* commandPtr)
+    {
+        if (commandPtr->type == RequestSyncCommand.Type)
+            return InputDeviceCommand.GenericSuccess;
+        return base.ExecuteCommand(commandPtr);
+    }
+
 #if UNITY_EDITOR
 
     static ProxiconDevice()
